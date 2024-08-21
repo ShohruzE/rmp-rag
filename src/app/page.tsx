@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -51,13 +52,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="p-5 max-w-lg w-full font-sans text-gray-800">
-        <h2 className="text-center text-blue-600 mb-4">Rate My Professor Chatbot</h2>
-        <div className="h-96 overflow-y-auto border border-gray-300 rounded-lg p-4 bg-white mb-5 shadow-md">
+      <div className="p-8 max-w-2xl w-full font-sans text-gray-800">
+        <h2 className="text-center text-blue-600 text-2xl mb-6">Rate My Professor Chatbot</h2>
+        <div className="h-[500px] overflow-y-auto border border-gray-300 rounded-lg p-6 bg-white mb-6 shadow-md">
           {messages.map((msg, index) => (
-            <div key={index} className={`mb-4 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-              <div className={`inline-block px-4 py-3 rounded-lg ${msg.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} max-w-xs shadow-sm`}>
-                {msg.content}
+            <div key={index} className={`mb-6 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
+              <div className={`inline-block px-6 py-4 rounded-lg ${msg.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} max-w-md shadow-sm`}>
+                <ReactMarkdown>{msg.content}</ReactMarkdown>
               </div>
             </div>
           ))}
@@ -67,12 +68,12 @@ export default function Home() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="flex-grow px-4 py-2 rounded-lg border border-gray-300 mr-3 shadow-inner"
+            className="flex-grow px-5 py-3 text-lg rounded-lg border border-gray-300 mr-4 shadow-inner"
             placeholder="Type your message..."
           />
           <button
             onClick={sendMessage}
-            className="px-4 py-2 rounded-lg bg-blue-600 text-white shadow-md hover:bg-blue-700 transition-colors"
+            className="px-5 py-3 text-lg rounded-lg bg-blue-600 text-white shadow-md hover:bg-blue-700 transition-colors"
           >
             Send
           </button>
