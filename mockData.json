@@ -1,0 +1,226 @@
+{
+  "reviews": [
+    {
+      "professor": "Dr. Jane Smith",
+      "star_rating": 4,
+      "subject": "Computer Science",
+      "reviews": [
+        "Great professor with clear explanations.",
+        "Assignments are challenging but fair.",
+        "Very approachable and always willing to help.",
+        "The lectures can be a bit fast-paced, but overall, a good learning experience."
+      ]
+    },
+    {
+      "professor": "Dr. Michael Johnson",
+      "star_rating": 5,
+      "subject": "Mathematics",
+      "reviews": [
+        "Best math professor I've ever had!",
+        "Makes complex concepts easy to understand.",
+        "Always available during office hours.",
+        "Engaging lectures that keep you interested.",
+        "Highly recommend for anyone interested in math."
+      ]
+    },
+    {
+      "professor": "Dr. Emily Chen",
+      "star_rating": 3,
+      "subject": "Physics",
+      "reviews": [
+        "Lectures are informative but sometimes hard to follow.",
+        "The grading is strict, but she is fair.",
+        "Labs are interesting, but the workload is heavy.",
+        "Good professor, but you need to put in a lot of effort."
+      ]
+    },
+    {
+      "professor": "Dr. Robert Lee",
+      "star_rating": 2,
+      "subject": "Chemistry",
+      "reviews": [
+        "Not very engaging in lectures.",
+        "The exams are difficult and cover a lot of material.",
+        "Office hours are limited and often crowded.",
+        "Would recommend finding another professor if possible."
+      ]
+    },
+    {
+      "professor": "Dr. Linda Garcia",
+      "star_rating": 5,
+      "subject": "English Literature",
+      "reviews": [
+        "Passionate about the subject and it shows.",
+        "Encourages deep thinking and discussion.",
+        "Provides detailed feedback on essays.",
+        "Always supportive and understanding.",
+        "Fantastic professor who makes literature come alive."
+      ]
+    },
+    {
+      "professor": "Dr. Sarah Thompson",
+      "star_rating": 4,
+      "subject": "Biology",
+      "reviews": [
+        "Very knowledgeable and passionate about biology.",
+        "Her exams are tough but fair.",
+        "Provides great resources for studying.",
+        "Sometimes her lectures can be a bit dense."
+      ]
+    },
+    {
+      "professor": "Dr. William Davis",
+      "star_rating": 3,
+      "subject": "Economics",
+      "reviews": [
+        "Lectures can be dry at times.",
+        "He expects a lot from his students.",
+        "Homework assignments are useful but time-consuming.",
+        "Good at explaining complex theories but can be unapproachable."
+      ]
+    },
+    {
+      "professor": "Dr. Lisa Rodriguez",
+      "star_rating": 5,
+      "subject": "Psychology",
+      "reviews": [
+        "Excellent professor who makes the subject interesting.",
+        "Her classes are interactive and engaging.",
+        "Always available to help with course material.",
+        "Grading is fair and she provides constructive feedback."
+      ]
+    },
+    {
+      "professor": "Dr. James Wilson",
+      "star_rating": 2,
+      "subject": "History",
+      "reviews": [
+        "Lectures are boring and hard to follow.",
+        "He reads directly from the textbook.",
+        "Not very approachable outside of class.",
+        "The exams are very detailed and difficult."
+      ]
+    },
+    {
+      "professor": "Dr. Nancy Patel",
+      "star_rating": 4,
+      "subject": "Sociology",
+      "reviews": [
+        "Very engaging and thought-provoking lectures.",
+        "She encourages class participation.",
+        "Assignments are relevant to real-world issues.",
+        "Her grading can be tough but fair."
+      ]
+    },
+    {
+      "professor": "Dr. Charles Brown",
+      "star_rating": 3,
+      "subject": "Political Science",
+      "reviews": [
+        "Good professor but sometimes disorganized.",
+        "He’s very knowledgeable but can go off-topic.",
+        "Exams are challenging but fair.",
+        "Office hours are helpful but limited."
+      ]
+    },
+    {
+      "professor": "Dr. Karen Nguyen",
+      "star_rating": 5,
+      "subject": "Environmental Science",
+      "reviews": [
+        "Passionate about the environment and it shows.",
+        "Her lectures are inspiring and informative.",
+        "She encourages hands-on learning and fieldwork.",
+        "One of the best professors I’ve had."
+      ]
+    },
+    {
+      "professor": "Dr. Richard Miller",
+      "star_rating": 3,
+      "subject": "Philosophy",
+      "reviews": [
+        "Lectures are interesting but can be confusing.",
+        "He challenges you to think critically.",
+        "His exams are tough but fair.",
+        "Not very approachable for extra help."
+      ]
+    },
+    {
+      "professor": "Dr. Amanda Clark",
+      "star_rating": 4,
+      "subject": "Art History",
+      "reviews": [
+        "Very passionate about art and history.",
+        "Her lectures are detailed and engaging.",
+        "Assignments are interesting and relevant.",
+        "Sometimes the workload can be heavy."
+      ]
+    },
+    {
+      "professor": "Dr. Steven Martinez",
+      "star_rating": 2,
+      "subject": "Chemistry",
+      "reviews": [
+        "Lectures are difficult to follow.",
+        "The exams are very challenging.",
+        "He’s not very responsive to emails.",
+        "Would recommend another professor if possible."
+      ]
+    },
+    {
+      "professor": "Dr. Emily Walker",
+      "star_rating": 5,
+      "subject": "English",
+      "reviews": [
+        "Amazing professor who cares about her students.",
+        "Her feedback on essays is very detailed.",
+        "She makes literature interesting and accessible.",
+        "Highly recommend her classes!"
+      ]
+    },
+    {
+      "professor": "Dr. John Carter",
+      "star_rating": 3,
+      "subject": "Physics",
+      "reviews": [
+        "Lectures are informative but can be dry.",
+        "He’s very knowledgeable but not the best at explaining concepts.",
+        "Exams are tough but fair.",
+        "Office hours are helpful but sometimes crowded."
+      ]
+    },
+    {
+      "professor": "Dr. Rebecca Green",
+      "star_rating": 4,
+      "subject": "Chemistry",
+      "reviews": [
+        "She’s very clear in her explanations.",
+        "Lab sessions are well-organized and informative.",
+        "Exams are challenging but she prepares you well.",
+        "Great professor, would recommend."
+      ]
+    },
+    {
+      "professor": "Dr. Andrew Scott",
+      "star_rating": 5,
+      "subject": "Computer Science",
+      "reviews": [
+        "Amazing professor with a deep knowledge of the subject.",
+        "Assignments are challenging but rewarding.",
+        "He’s always willing to help outside of class.",
+        "Great at making complex concepts understandable."
+      ]
+    },
+    {
+      "professor": "Dr. Michelle Turner",
+      "star_rating": 3,
+      "subject": "Statistics",
+      "reviews": [
+        "Lectures are detailed but can be confusing.",
+        "She expects a lot from her students.",
+        "The exams are tough and require a lot of study.",
+        "She’s helpful during office hours but not very approachable in class."
+      ]
+    }
+  ]
+}
