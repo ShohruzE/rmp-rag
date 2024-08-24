@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import { useState } from "react";
 import ReactMarkdown from 'react-markdown';
 
@@ -11,6 +10,8 @@ export default function Home() {
     }
   ]);
   const [message, setMessage] = useState('');
+  const [showInput, setShowInput] = useState(false); 
+  const [professorUrl, setProfessorUrl] = useState(''); 
 
   const sendMessage = async () => {
     if (!message.trim()) return;
@@ -50,6 +51,35 @@ export default function Home() {
     });
   };
 
+  const addProfessor = async () => {
+    if (!professorUrl.trim()) return;
+
+    const response = await fetch('/api/scrape-professor', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ url: professorUrl })
+    });
+
+    const scrapedInfo = await response.json();
+
+    console.log('scraped info: ', scrapedInfo);
+
+    const comments = scrapedInfo.reviews && scrapedInfo.reviews.length > 0
+        ? scrapedInfo.reviews.join('\n')
+        : 'No reviews available';
+
+    setMessages((messages) => [
+      ...messages,
+      { role: "user", content: professorUrl },
+      { role: "assistant", content: `Professor: ${scrapedInfo.professor}\nStar Rating: ${scrapedInfo.star_rating}\nDepartment: ${scrapedInfo.subject}\nReviews:\n${comments}` }
+    ]);
+
+    setProfessorUrl('');
+    setShowInput(false);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="p-8 max-w-2xl w-full font-sans text-gray-800">
@@ -77,6 +107,34 @@ export default function Home() {
           >
             Send
           </button>
+        </div>
+
+        {/* Add Professor Button */}
+        <div className="mt-4">
+          <button
+            onClick={() => setShowInput(!showInput)}
+            className="px-5 py-3 text-lg rounded-lg bg-green-600 text-white shadow-md hover:bg-green-700 transition-colors"
+          >
+            {showInput ? 'Cancel' : 'Click Here to Add a Professor'}
+          </button>
+
+          {showInput && (
+            <div className="mt-4">
+              <input
+                type="text"
+                value={professorUrl}
+                onChange={(e) => setProfessorUrl(e.target.value)}
+                className="flex-grow px-5 py-3 text-lg rounded-lg border border-gray-300 shadow-inner w-full"
+                placeholder="Enter Rate My Professor URL..."
+              />
+              <button
+                onClick={addProfessor}
+                className="px-5 py-3 mt-4 text-lg rounded-lg bg-blue-600 text-white shadow-md hover:bg-blue-700 transition-colors w-full"
+              >
+                Add Professor
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
