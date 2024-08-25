@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
   });
 
   const results = await index.query({
-    topK: 3,
+    topK: 1,
     includeMetadata: true,
     vector: embeddings.data[0].embedding,
   });
