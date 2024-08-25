@@ -119,7 +119,7 @@ export default function Home() {
         <div className="mt-4">
           <button
             onClick={() => setShowInput(!showInput)}
-            className="px-5 py-3 text-lg rounded-lg bg-green-600 text-white shadow-md hover:bg-green-700 transition-colors"
+            className="px-5 py-3 text-lg rounded-lg bg-blue-400 text-white shadow-md hover:bg-blue-500 transition-colors"
           >
             {showInput ? 'Cancel' : 'Click Here to Add a Professor'}
           </button>
