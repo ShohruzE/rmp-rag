@@ -32,12 +32,20 @@ export default function Home() {
       body: JSON.stringify([...messages, { role: "user", content: message }])
     });
 
+    if (!response.body) {
+      setMessages((messages) => [
+        ...messages,
+        { role: "assistant", content: "Sorry, there was an issue processing your request. Please try again." }
+      ]);
+      return;
+    }
+
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
 
     let result = "";
-    reader.read().then(function processText({ done, value }) {
-      if (done) return;
+    const processText = async ({ done, value }: ReadableStreamReadResult<Uint8Array>): Promise<void> => {
+      if (done || !value) return;
       const text = decoder.decode(value, { stream: true });
       setMessages((messages) => {
         let lastMessage = messages[messages.length - 1];
@@ -48,12 +56,14 @@ export default function Home() {
         ];
       });
       return reader.read().then(processText);
-    });
+    };
+
+    reader.read().then(processText);
   };
 
   const addProfessor = async () => {
     if (!professorUrl.trim()) return;
-  
+
     const response = await fetch('/api/scrape-professor', {
       method: 'POST',
       headers: {
@@ -61,9 +71,9 @@ export default function Home() {
       },
       body: JSON.stringify({ url: professorUrl })
     });
-  
+
     const scrapedInfo = await response.json();
-  
+
     if (scrapedInfo.error) {
       setMessages((messages) => [
         ...messages,
@@ -71,17 +81,17 @@ export default function Home() {
       ]);
       return;
     }
-  
+
     const comments = scrapedInfo.data.reviews && scrapedInfo.data.reviews.length > 0
       ? scrapedInfo.data.reviews.join('\n')
       : 'No reviews available';
-  
+
     setMessages((messages) => [
       ...messages,
       { role: "user", content: professorUrl },
       { role: "assistant", content: `Professor: ${scrapedInfo.data.professor || 'N/A'}\nStar Rating: ${scrapedInfo.data.star_rating || 'N/A'}\nDepartment: ${scrapedInfo.data.subject || 'N/A'}\nReviews:\n${comments}` }
     ]);
-  
+
     setProfessorUrl('');
     setShowInput(false);
   };
