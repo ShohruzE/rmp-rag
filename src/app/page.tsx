@@ -53,7 +53,7 @@ export default function Home() {
 
   const addProfessor = async () => {
     if (!professorUrl.trim()) return;
-
+  
     const response = await fetch('/api/scrape-professor', {
       method: 'POST',
       headers: {
@@ -61,21 +61,27 @@ export default function Home() {
       },
       body: JSON.stringify({ url: professorUrl })
     });
-
+  
     const scrapedInfo = await response.json();
-
-    console.log('scraped info: ', scrapedInfo);
-
-    const comments = scrapedInfo.reviews && scrapedInfo.reviews.length > 0
-        ? scrapedInfo.reviews.join('\n')
-        : 'No reviews available';
-
+  
+    if (scrapedInfo.error) {
+      setMessages((messages) => [
+        ...messages,
+        { role: "assistant", content: "Failed to scrape professor details. Please check the URL and try again." }
+      ]);
+      return;
+    }
+  
+    const comments = scrapedInfo.data.reviews && scrapedInfo.data.reviews.length > 0
+      ? scrapedInfo.data.reviews.join('\n')
+      : 'No reviews available';
+  
     setMessages((messages) => [
       ...messages,
       { role: "user", content: professorUrl },
-      { role: "assistant", content: `Professor: ${scrapedInfo.professor}\nStar Rating: ${scrapedInfo.star_rating}\nDepartment: ${scrapedInfo.subject}\nReviews:\n${comments}` }
+      { role: "assistant", content: `Professor: ${scrapedInfo.data.professor || 'N/A'}\nStar Rating: ${scrapedInfo.data.star_rating || 'N/A'}\nDepartment: ${scrapedInfo.data.subject || 'N/A'}\nReviews:\n${comments}` }
     ]);
-
+  
     setProfessorUrl('');
     setShowInput(false);
   };
@@ -109,7 +115,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Add Professor Button */}
+        {/* add professor btn  */}
         <div className="mt-4">
           <button
             onClick={() => setShowInput(!showInput)}
